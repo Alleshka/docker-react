@@ -11,7 +11,7 @@ script:
   - docker run -e CI=true alleshka/docker-react npm run test
 
 deploy: 
-  provider: elasticbenstalk
+  provider: elasticbeanstalk
   region: "us-east-2"
   app: "docker-application"
   env: "Dockerapplication-env"
@@ -19,3 +19,5 @@ deploy:
   bucket_path: "docker-application"
   on: 
     branch: master
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
