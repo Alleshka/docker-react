@@ -1,0 +1,9 @@
+sudo: requered
+services: 
+  - docker
+
+before_install:
+  - docker build -t alleshka/docker-react -f DockerFile.dev .
+
+  script:
+    - docker run -e CI=true alleshka/docker-react npm run test -- --coverage
