@@ -9,3 +9,13 @@ before_install:
 
 script:
   - docker run -e CI=true alleshka/docker-react npm run test
+
+deploy: 
+  provider: elasticbenstalk
+  region: "us-east-2"
+  app: "docker-application"
+  env: "Dockerapplication-env"
+  bucket_name: "elasticbeanstalk-us-east-2-529363392627"
+  bucket_path: "docker-application"
+  on: 
+    branch: master
